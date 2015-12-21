@@ -20,7 +20,7 @@
 </div>
 
 <div id="two-columns" class="grid-container" style="display:block;">
-<ul id="m_list_1" class="rig columns-2 ">
+<ul id="m_list" class="rig columns-2 ">
 	<volist name="products" id="hostlist">
 		<li>
 			<a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $hostlist['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
@@ -78,7 +78,7 @@ $(function() {
 
 	/*---------------------加载更多--------------------*/
 	var total = {pigcms:$count},
-		pagesize = 8,
+		pagesize = 2,
 		pages = Math.ceil(total / pagesize);
 	var com_link = '{pigcms::U('Store/product',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id'], 'twid' => $twid))}';
 	var label_arr = ["\u8bf7\u9009\u62e9\u6807\u7b7e","\u70ed\u5356","\u7206\u6b3e"];
@@ -110,12 +110,12 @@ $(function() {
 						_page = $('#show_more').attr('page');
 						var _tmp_html = '';
 						$.each(data, function(x, y) {
-							_tmp_html +=    '<li><span class="pic">' +
+							_tmp_html +=    '<li>' +
 							'<a href="' + com_link + '&id=' + y.id + '">' +
 							'<img src="' +y.logourl + '" />' +
-							'</a></span><span class="con"><a class="t" href="' + com_link + '&id=' + y.id + '">' + y.name + '</a><b>￥'+ y.price +'&nbsp;元</b><del>￥' + y.oprice + '</del>' +
-							'<span style="color:#999;font-size:8px;margin-top:15px;">' + (parseInt(y.salecount) + parseInt(y.fakemembercount)) + '人付款</span></span></li>';
+							'</a><h3><a href="' + com_link + '&id=' + y.id + '">' + y.name + '</a></h3><p><span class="moneysymbol">￥</span><span class="discountprice"><strong>'+ y.price +'</strong></span><del>￥' + y.oprice + '</del></p></li>';
 						});
+
 						$('#m_list').append(_tmp_html);
 					}
 				});
