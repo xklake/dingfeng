@@ -1,9 +1,9 @@
-.m-hd {background:-webkit-linear-gradient(top,#6161CF,#333399);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);border-bottom: 1px solid #25257C;} .tit {text-shadow: 0 1px rgba(0, 0, 0, 0.2);color: #FFF;} .m-hd div a.back {border-right: 1px solid #333399;} .m-hd div a.cart {border-left: 1px solid #6161CF;} .m-hd div a.cat, .m-hd div.logo, .m-hd div.tit, .m-hd div a.uc {border-right: 1px solid #333399;border-left: 1px solid #6161CF;} .m-hd div a.back:after {background: url(/tpl/static/store/back2.png) no-repeat;background-size: contain;} .m-hd div a.cat:after {background: url(/tpl/static/store/caticon2.png) no-repeat;background-size: contain;} .m-hd div a.uc:after {background: url(/tpl/static/store/user2.png) no-repeat;background-size: contain;} .m-hd div a.cart:after {background: url(/tpl/static/store/cart2.png) no-repeat;background-size: contain;}
+.m-hd {background:-webkit-linear-gradient(top,#3a4e9e,#3a4e9e);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);border-bottom: 1px solid #25257C;} .tit {text-shadow: 0 1px rgba(0, 0, 0, 0.2);color: #FFF;} .m-hd div a.back {border-right: 1px solid #333399;} .m-hd div a.cart {border-left: 1px solid #6161CF;} .m-hd div a.cat, .m-hd div.logo, .m-hd div.tit, .m-hd div a.uc {border-right: 1px solid #333399;border-left: 1px solid #6161CF;} .m-hd div a.back:after {background: url(/tpl/static/store/back2.png) no-repeat;background-size: contain;} .m-hd div a.cat:after {background: url(/tpl/static/store/caticon2.png) no-repeat;background-size: contain;} .m-hd div a.uc:after {background: url(/tpl/static/store/user2.png) no-repeat;background-size: contain;} .m-hd div a.cart:after {background: url(/tpl/static/store/cart2.png) no-repeat;background-size: contain;}
 /*下面为新増样式*/
 .m-l-search .btn-search {
 width: 5.8rem;
 height: 3.6rem;
-background: url(8/seach_btn.png) no-repeat right;/*1中按钮*/
+background: url(http://7xkwre.com1.z0.glb.clouddn.com/seach_btn.png) no-repeat right;/*1中按钮*/
 background-size: 100% auto;
 border: 0;
 border-radius: 0 .3rem .3rem 0;
@@ -11,7 +11,7 @@ border-radius: 0 .3rem .3rem 0;
 
 .m-detail-mainout .d-info .i-row.act a.buynow, .m-detail-mainout .d-info .i-row.act a.addcart {
 width: 48.5%;
-background: #6161cf; /*2中左侧按钮.*/
+background: #3a4e9e; /*2中左侧按钮.*/
 color: #fff;
 font-size: 1.4rem;
 }
@@ -27,16 +27,15 @@ font-size: 1.4rem;
 }
 .detailinfo .tabs li.on {
 background: #fff;
-border-top: .2rem solid #6161cf; /*需要与2中左侧按钮同色*/
 line-height: 2.8rem;
-color: #6161cf;/*需要与2中左侧按钮同色*/
+color: #3a4e9e;/*需要与2中左侧按钮同色*/
 }
 
 .m-cart-e .gobuy {
 line-height: 42px;
 display: block;
 border-radius: 2px;
-background: #6161cf;/*3中按钮背景颜色.*/
+background: #3a4e9e;/*3中按钮背景颜色.*/
 color: #fff;
 font-size: 16px;
 text-shadow: 1px 1px 1px #4c4cae;/*3中文字阴影颜色.*/
@@ -59,18 +58,19 @@ font-weight: 700;
 line-height: 36px;
 }
 
+
 /* ----- Image grids ----- */
 ul.rig {
     list-style: none;
     font-size: 0px;
-    margin-left: -2.5%; /* should match li left margin */
+    margin-left: 0.8%; /* should match li left margin */
     margin-right:2.5%;
     margin-top:25px;
 }
 ul.rig li {
     display: inline-block;
     padding: 10px;
-    margin: 0 0 3% 5%;
+    margin: 0 0 3% 3%;
     background: #fff;
     border: 1px solid #ddd;
     font-size: 12px;
@@ -107,6 +107,5 @@ ul.rig li p {
 }
 /* class for 2 columns */
 ul.rig.columns-2 li {
-    width: 45%; /* this value + 2.5 should = 50% */
+    width: 46.5%; /* this value + 2.5 should = 50% */
 }
-
