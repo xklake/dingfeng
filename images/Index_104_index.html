@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+       <if condition="$zd['status'] eq 1">
+            {pigcms:$zd['code']}
+        </if>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>{pigcms:$tpl.wxname}</title>
+        <base href="." />
+        <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="{pigcms::RES}/css/allcss/cate4_{pigcms:$tpl.color_id}.css" rel="stylesheet" type="text/css" />
+        <link href="{pigcms::RES}/css/104/iscroll.css" rel="stylesheet" type="text/css" />
+        <script src="{pigcms::RES}/css/104/iscroll.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var myScroll;
+
+            function loaded() {
+                myScroll = new iScroll('wrapper', {
+                    snap: true,
+                    momentum: false,
+                    hScrollbar: false,
+                    onScrollEnd: function () {
+                        document.querySelector('#indicator > li.active').className = '';
+                        document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'active';
+                    }
+                });
+            }
+           document.addEventListener('DOMContentLoaded', loaded, false);
+        </script>
+
+    </head>
+    <body id="cate4">
+    <!--背景音乐-->
+    <if condition="$homeInfo['musicurl'] neq false">
+<include file="Index:music"/>
+</if>
+
+
+    <form id="search_form" name="search_form" action="" method="post">
+        <div class="m-l-search">
+            <input type="hidden" name="wecha_id" value="{pigcms:$wecha_id}" />
+            <input type="hidden" name="token" value="{pigcms:$token}" />
+            <input type="hidden" name="twid" value="{pigcms:$twid}" />
+            <input id="search_name" class="inp-search" name="search_name" type="search" value="" placeholder="输入关键字搜索" />
+            <input class="btn-search" name="search-btn" type="submit" value="" />
+        </div>
+    </form>
+
+    <if condition="$homeInfo['switch'] eq 0">
+	   <div class="banner">
+		<div id="wrapper">
+			<div id="scroller">
+				<ul id="thelist"> 
+				<volist name="flash" id="so">
+						<li><p>{pigcms:$so.info}</p><a href="{pigcms:$so.url}"><img src="{pigcms:$so.img}" /></a></li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="prev" onclick="myScroll.scrollToPage('prev', 0,400,3);return false">&larr; prev</div>
+			<ul id="indicator">
+			<volist name="flash" id="so">
+			<li   <if condition="$i eq 1">class="active"</if>  >{pigcms:$i}</li>
+			</volist>
+			 
+			</ul>
+			<div id="next" onclick="myScroll.scrollToPage('next', 0);return false">next &rarr;</div>
+		</div>
+		<div class="clr"></div>
+		</div>
+    <else />
+        <include file="Index:bannerstyle"/>
+    </if>
+
+        <div id="insert1"  class="sectiontitle">分类导航</div>
+
+        <div id="categories" class="grid-container" style="display:block;">
+            <ul id="cat_list" class="rig columns-2 ">
+                <volist name="info" id="vo">
+                    <li>
+                        <a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
+                            <img src="{pigcms:$vo.img}" />
+                        </a>
+
+                        <h3>
+                            <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $hostlist['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                                {pigcms:$vo.name}
+                            </a>
+                        </h3>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+
+        <script>
+            var count = document.getElementById("thelist").getElementsByTagName("img").length;
+
+            for(i=0;i<count;i++){
+                document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+
+            }
+
+            document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+
+            setInterval(function(){
+                myScroll.scrollToPage('next', 0,400,count);
+            },3500 );
+
+            window.onresize = function(){ 
+                for(i=0;i<count;i++){
+                    document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+
+                }
+
+                document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+            };
+
+        </script>
+
+        <div id="bestseller"  class="sectiontitle">畅销排行</div>
+
+        <div id="best_seller" class="grid-container" style="display:block;">
+            <ul id="bestseller_list" class="rig columns-2 ">
+                <volist name="bestseller" id="vo">
+                    <li>
+                        <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $vo['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                        <img src="{pigcms:$vo.logourl}" />
+                        </a>
+
+                        <h3>
+                            <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $vo['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                                {pigcms:$vo.name}
+                            </a>
+                        </h3>
+
+                        <p>
+                            <span class="moneysymbol">￥</span><span class="discountprice"><strong>{pigcms:$vo.price}</strong></span>
+                            <del style=""><span class="moneysymbol">￥</span>{pigcms:$vo.oprice}</del>
+                        </p>
+
+                    </li>
+                </volist>
+            </ul>
+        </div>
+
+    <div id="newproducts"  class="sectiontitle">最新上架</div>
+    <div id="new_products" class="grid-container" style="display:block;">
+        <ul id="newproducts_list" class="rig columns-2 ">
+            <volist name="newproducts" id="vo">
+                <li>
+                    <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $vo['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                    <img src="{pigcms:$vo.logourl}" />
+                    </a>
+
+                    <h3>
+                        <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $vo['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                            {pigcms:$vo.name}
+                        </a>
+                    </h3>
+
+                    <p>
+                        <span class="moneysymbol">￥</span><span class="discountprice"><strong>{pigcms:$vo.price}</strong></span>
+                        <del style=""><span class="moneysymbol">￥</span>{pigcms:$vo.oprice}</del>
+                    </p>
+
+                </li>
+            </volist>
+        </ul>
+    </div>
+
+    <!-- show best seller of each categories -->
+    <volist name="info" id="vo">
+        <div class="sectiontitle">{pigcms:$vo.name}</div>
+
+        <div class="grid-container" style="display:block;">
+            <ul class="rig columns-2 ">
+                <volist name="vo['best']" id="po">
+                    <li>
+                        <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $po['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                            <img src="{pigcms:$po.logourl}" />
+                        </a>
+
+                        <h3>
+                            <a href="{pigcms::U('Store/product',array('token' => $_GET['token'], 'id' => $po['id'], 'wecha_id' => $_GET['wecha_id'], 'twid' => $twid))}">
+                                {pigcms:$po.name}
+                            </a>
+                        </h3>
+
+                        <p>
+                            <span class="moneysymbol">￥</span><span class="discountprice"><strong>{pigcms:$po.price}</strong></span>
+                            <del style=""><span class="moneysymbol">￥</span>{pigcms:$po.oprice}</del>
+                        </p>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </volist>
+
+
+    <div id="insert3"> This is insert3</div>
+    <div style="display:none"> </div>
+    <div style="display:none"></div>
+
+<div class="copyright">
+<if condition="$iscopyright eq 1">
+{pigcms:$homeInfo.copyright}
+<else/>
+{pigcms:$siteCopyright}
+</if>
+</div> 
+<include file="Index:styleInclude"/><include file="$cateMenuFileName"/> <include file="Index:kcdh"/> 
+<!-- share -->
+<include file="Index:share" />
+
+    <script>
+        $( document ).ready(function() {
+            $('#search_form').submit(function() {
+
+                var search_name = $('#search_name').val();
+                if (search_name == '') {
+                    return false;
+                }
+            });
+        });
+    </script>
+
+    </body></html>

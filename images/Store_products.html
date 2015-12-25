@@ -10,6 +10,7 @@
 	</div>
 </form>
 
+
 <div class="m-select c666 order_control">
 <span><a href="javascript:" order="time" class="arrow-down">时间<i><em></em></i></a></span>
 <span><a href="javascript:" order="salecount">销量<i><em></em></i></a></span>
@@ -41,7 +42,7 @@
 </ul>
 </div>
 
-<a class="more" id="show_more" page="2" style="display: none;" href="javascript:void(0);">加载更多</a>
+<a class="more" id="show_more" page="2" style="display: none;" href="javascript:void(0);"><img src="http://7xkwre.com1.z0.glb.clouddn.com/loading.gif" /></a>
 <input type="hidden" value="1" id="pageid" />
 <input type="hidden" id="canScroll" value="1" />
 <script type="text/javascript">
@@ -52,6 +53,7 @@ $(function() {
 			return false;
 		}
 	});
+
 
 	//点击排序
 	var base_url = '{pigcms::U('Store/products',array('token'=>$_GET['token'],'catid'=>$thisCat['id'],'wecha_id'=>$_GET['wecha_id'], 'twid' => $twid))}';
@@ -78,7 +80,7 @@ $(function() {
 
 	/*---------------------加载更多--------------------*/
 	var total = {pigcms:$count},
-		pagesize = 2,
+		pagesize = 8;,
 		pages = Math.ceil(total / pagesize);
 	var com_link = '{pigcms::U('Store/product',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id'], 'twid' => $twid))}';
 	var label_arr = ["\u8bf7\u9009\u62e9\u6807\u7b7e","\u70ed\u5356","\u7206\u6b3e"];
@@ -86,9 +88,9 @@ $(function() {
 		var _page = $('#show_more').attr('page');
 		$(window).bind("scroll",function() {
 			if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
-				$('#show_more').show().html('加载中...');
+				$('#show_more').show().html('<img src="http://7xkwre.com1.z0.glb.clouddn.com/loading.gif" /> ');
 				if (_page > pages) {
-					$('#show_more').show().html('没有更多了').delay(2300).slideUp(1600);
+					$('#show_more').show().html('<span style="text-align:center;">没有更多了</span>').delay(2300).slideUp(1600);
 					return;
 				}
 				if($('#canScroll').val()==0){//不要重复加载
@@ -102,7 +104,7 @@ $(function() {
 					dataType : "json",
 					success : function(RES) {
 						$('#canScroll').attr('value',1);
-						$('#show_more').hide().html('加载更多');
+						$('#show_more').hide().html('<img src="http://7xkwre.com1.z0.glb.clouddn.com/loading.gif" />');
 						data = RES.products;
 						if(data.length){
 							$('#show_more').attr('page',parseInt(_page)+1);
