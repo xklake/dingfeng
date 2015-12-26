@@ -497,6 +497,9 @@ a{color:#333;text-decoration:none}
 .more {
     text-align: center;
     vertical-align: middle;
+    display:block;
+    height: 2rem;
+    width: auto;
 }
 
 .more img{
