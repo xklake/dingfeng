@@ -510,6 +510,7 @@ a{color:#333;text-decoration:none}
 .zhekou{
     background: #b51d1d;
     color: #ffffff;
-    padding:0rem 2rem;
+    padding:0rem 0.3rem;
     display: inline;
+    float:right;
 }
