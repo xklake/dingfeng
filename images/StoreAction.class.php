@@ -229,7 +229,7 @@ class StoreAction extends WapAction{
 
 		//获取每个每个分类的最畅销的产品
 		foreach($result as $k => $v){
-			$where = array('token' => $this->token, 'cid' => $this->_cid, 'groupon' => 0, 'dining' => 0, 'status' => 0);
+			$where = array('token' => $this->token, 'cid' => $this->_cid, 'groupon' => 0, 'dining' => 0, 'status' => 0, 'flag' => 1);
 
 			$cts = $this->getAllCatsId($v);
 
@@ -239,7 +239,7 @@ class StoreAction extends WapAction{
 				$where['catid'] = $cts[0];
 			}
 
-			$bst = $this->product_model->where($where)->order('salecount desc')->limit('0, 6')->select();
+			$bst = $this->product_model->where($where)->order('fakememebercount desc')->limit('0, 6')->select();
 			$result[$k]['best'] = $bst;
 		}
 		$this->assign('info', $result);
@@ -250,7 +250,7 @@ class StoreAction extends WapAction{
 		$where = array('token' => $this->token, 'cid' => $this->_cid, 'groupon' => 0, 'dining' => 0, 'status' => 0);
 		$where['catid'] = array('in', $allcats);
 
-		$bestseller = $this->product_model->where($where)->order('salecount desc')->limit('0, 8')->select();
+		$bestseller = $this->product_model->where($where)->order('fakememebercount desc')->limit('0, 8')->select();
 		$newproducts = $this->product_model->where($where)->order('time desc')->limit('0, 8')->select();
 
 
