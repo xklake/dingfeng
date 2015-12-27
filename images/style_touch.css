@@ -506,3 +506,10 @@ a{color:#333;text-decoration:none}
     text-align: center;
     vertical-align: middle;
 }
+
+.zhekou{
+    background: #b51d1d;
+    color: #ffffff;
+    padding:0rem 2rem;
+    display: inline;
+}
