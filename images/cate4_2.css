@@ -183,7 +183,7 @@ max-width:100%;text-overflow:ellipsis;white-space:nowrap !important;white-space:
 /* ----- Image grids ----- */
 
 .jiajialabel{
-	color:#615d5d;
+	color:#ffffff;
 	background: #3a4e9e;
 	font-size:1rem;
 	margin-left: 0.7rem;
@@ -277,18 +277,18 @@ ul.rig li .catname a{
 }
 
 ul.rig li .moneysymbol{
-	font-size:0.7em;
+	font-size:0.7rem;
 }
 
 ul.rig li del{
 	color:#767676;
-	font-size:0.5em;
+	font-size:0.75rem;
 }
 
 ul.rig li p {
 	color: #b61d1d;
 	font-size: 1em;
-	line-height: 1.2em;
+	line-height: 1em;
 }
 /* class for 2 columns */
 ul.rig.columns-2 li {
