@@ -185,10 +185,16 @@ max-width:100%;text-overflow:ellipsis;white-space:nowrap !important;white-space:
 .sectiontitle{
 	color:#615d5d;
 	font-size:1rem;
-	margin-left: 0.8rem;
+	margin-left: 0.7rem;
+	margin-right: 0.7rem;
 	vertical-align: middle;
 	height: 1.8rem;
 	line-height: 1.8rem;
+}
+
+.sectiontitle .sectionright{
+	float:right;
+	color: #615D5D;
 }
 
 ul.rig {
