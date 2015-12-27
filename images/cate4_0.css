@@ -173,6 +173,32 @@ max-width:100%;text-overflow:ellipsis;white-space:nowrap !important;white-space:
 
 
 /* ----- Image grids ----- */
+.jiajialabel{
+	color:#ffffff;
+	background: #3a4e9e;
+	font-size:1rem;
+	vertical-align: middle;
+	height: 1.8rem;
+	line-height: 1.8rem;
+}
+
+.jiajialabel .lableright
+{
+	margin-right: 0.7rem;
+	width:auto;
+	text-align: right;
+	float: right;
+}
+
+.jiajialabel .lablemiddle{
+	width:auto;
+	text-align: center;
+}
+
+.jiajialabel .lableleft
+{
+	margin-left: 0.7rem;
+}
 
 .sectiontitle{
 	color:#615d5d;
@@ -222,6 +248,16 @@ ul.rig li h3 {
 	font-size: 0.8rem;
 }
 
+ul.rig li .catname {
+	margin: 0 0 0px;
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+ul.rig li .catname a{
+	color: #615d5d;
+}
+
 ul.rig li h3 a {
 	margin: 0 0 5px;
 	text-align: center;
@@ -230,20 +266,27 @@ ul.rig li h3 a {
 }
 
 ul.rig li .moneysymbol{
-	font-size:0.7em;
+	font-size:0.7rem;
 }
 
 ul.rig li del{
 	color:#767676;
-	font-size:0.5em;
+	font-size:0.75rem;
 }
 
 ul.rig li p {
 	color: #b61d1d;
 	font-size: 1em;
-	line-height: 1.2em;
+	line-height: 1em;
 }
 /* class for 2 columns */
 ul.rig.columns-2 li {
 	width: 46.5%; /* this value + 2.5 should = 50% */
+}
+
+.zhekou{
+	float:right;font-size: 0.9rem;
+	background: #b51d1d;
+	color: #ffffff;
+	padding:0rem 0.3rem;
 }
