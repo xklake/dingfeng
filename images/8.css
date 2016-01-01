@@ -50,7 +50,7 @@ display: block;
 text-align: center;
 -webkit-box-flex: 1;
 width: 100%;
-background: #6161cf;/*4中按钮颜色，需要与2中左侧按钮同色*/
+background: #3a4e9e;/*4中按钮颜色，需要与2中左侧按钮同色*/
 color: #fff;
 text-shadow:none;
 -webkit-box-shadow: 0 -1px 1px #36368f inset;/*4中按钮阴影颜色.*/
